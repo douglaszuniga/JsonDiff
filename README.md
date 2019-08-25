@@ -31,12 +31,14 @@ Provide 2 http endpoints that accepts JSON base64 encoded binary data on both en
 - on `<host>:8080/v1/diff/<ID>`
     - `HTTP 404 Not Found` => the ID has no record in the database
     - `HTTP 200 OK` => success
-    
+ 
+## API Documentation
+
+The application integrates a web-ui page where it is possible to check and interact with the endpoints, visit [swagger-ui](http://localhost:8080/swagger-ui.html#)
     
 ## Possible Improvements
 
 - use real database like mongo or postgresql to persist data after the app goes down
-- add swagger page with api doc
 - create dockerfile to create images
 - use reactive programming
 - add a process to prepare the diff in the background, this way we can reduce the duration of the endpoint
@@ -94,5 +96,5 @@ mvn package
 run the application
 
 ```shell script
-java -jar target/JsonDiff-0.0.1-SNAPSHOT.jar
+java -jar target/JsonDiff-1.0.0-RELEASE.jar
 ```
