@@ -1,4 +1,4 @@
-package com.dzuniga.JsonDiff;
+package com.dzuniga.JsonDiff.functions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;

@@ -1,9 +1,7 @@
-package com.dzuniga.JsonDiff;
+package com.dzuniga.JsonDiff.functions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.dzuniga.JsonDiff.functions.DefaultInsightsFinder;
-import com.dzuniga.JsonDiff.functions.InsightsFinder;
 import com.dzuniga.JsonDiff.model.DiffItem;
 import java.util.Collection;
 import org.junit.Test;

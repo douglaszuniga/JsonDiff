@@ -5,7 +5,6 @@ import static com.google.common.base.Preconditions.checkArgument;
 import java.util.Objects;
 import lombok.Builder;
 import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -20,16 +19,16 @@ public class JsonRecord {
     public JsonRecord(Long id, String left, String right) {
 
         Objects.requireNonNull(id, "Id must not be null");
-        Objects.requireNonNull(left, "Left must not be null");
-        Objects.requireNonNull(right, "right must not be null");
-
         checkArgument(id >= 0, "Id must be greater than or equal to zero");
-        checkArgument(StringUtils.isNotBlank(left), "Left must not be blank");
-        checkArgument(StringUtils.isNotBlank(right), "Right must not be blank");
 
         this.Id = id;
         this.left = left;
         this.right = right;
+    }
+
+    public static JsonRecord.JsonRecordBuilder from(JsonRecord record) {
+        Objects.requireNonNull(record, "Id must not be null");
+        return JsonRecord.builder().right(record.getRight()).left(record.getLeft()).id(record.getId());
     }
 
     @Override

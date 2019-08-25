@@ -7,9 +7,11 @@ import com.dzuniga.JsonDiff.repository.JsonRecord;
 import com.dzuniga.JsonDiff.repository.JsonRecordRepository;
 import java.util.Objects;
 import java.util.Optional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class DefaultJsonDiffProcessor implements JsonDiffProcessor {
 
     private final JsonRecordRepository recordRepository;
@@ -25,12 +27,12 @@ public class DefaultJsonDiffProcessor implements JsonDiffProcessor {
     @Override
     public DiffResult apply(Long id) {
         Objects.requireNonNull(id, "The record id must not be null");
-
         Optional<JsonRecord> optionalRecord = recordRepository.getById(id);
 
         return optionalRecord
                 .map(record -> {
                     if (isRecordReadyToProcess(record)) {
+                        log.info("The Json Record id: [{}] is ready to process", id);
                         return diffChecker.check(record.getLeft(), record.getRight());
                     }
                     throw new IncompleteJsonRecordException(record);
@@ -39,9 +41,6 @@ public class DefaultJsonDiffProcessor implements JsonDiffProcessor {
     }
 
     private boolean isRecordReadyToProcess(JsonRecord record) {
-        if (record == null) {
-            return false;
-        }
         return record.getLeft() != null && record.getRight() != null;
     }
 }

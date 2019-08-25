@@ -13,4 +13,9 @@ public class JsonDiffApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void applicationStarts() {
+		JsonDiffApplication.main(new String[]{});
+	}
+
 }
