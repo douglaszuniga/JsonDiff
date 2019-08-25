@@ -22,16 +22,14 @@ public class DefaultInsightsFinder implements InsightsFinder {
         long offset = 0;
         long length = 0;
         boolean inCaptureMode = false;
-
+        // both strings are the same size, we can safely moving using left as the base
         for (int i = 0; i < left.length(); i++) {
             if (left.charAt(i) != right.charAt(i)) {
-                if (inCaptureMode) {
-                    length++;
-                } else {
+                if (!inCaptureMode) {
                     offset = i;
-                    length++;
                     inCaptureMode = true;
                 }
+                length++;
             } else {
                 if (inCaptureMode) {
                     // add the recorded diff into the insights collection

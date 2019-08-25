@@ -9,6 +9,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.http.HttpStatus;
 
+/**
+ * Represents a Error body, the idea is to provide a custom message when something wrong happens
+ */
 @Data
 public class RestError {
     private final HttpStatus status;

@@ -9,6 +9,10 @@ import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+/**
+ * Represents the global diff result and the insights
+ * {result,[{offset, length}]}
+ */
 @Data
 public class DiffResult {
 

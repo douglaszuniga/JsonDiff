@@ -6,10 +6,16 @@ import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
+/**
+ * Simple in memory database supported by a Map implementation
+ */
 @Repository
 @Slf4j
 public class InMemoryJsonRecordRepository implements JsonRecordRepository {
 
+    /**
+     * this is the "database"
+     */
     private static final Map<Long, JsonRecord> database = new HashMap<>();
 
     public void save(JsonRecord record) {

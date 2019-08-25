@@ -19,6 +19,7 @@ public class DefaultInputDecoder implements InputDecoder {
             log.trace("The decoded input is: [{}]", decodedInput);
             return decodedInput;
         } catch (IllegalArgumentException e) {
+            log.error("The input string: [{}] is not valid base64 string", input, e);
             throw new InputNonValidException(input);
         }
     }

@@ -31,7 +31,7 @@ public class DefaultInputConsumer implements InputConsumer {
         Objects.requireNonNull(id, "Id must not be null");
         checkArgument(id >= 0, "Id must not be negative");
         checkArgument(StringUtils.isNotBlank(input), "Input must not be blank");
-
+        // validates and decodes the input string
         String decodedInput = inputDecoder.decode(input);
         JsonRecord jsonRecord = constructJsonRecord(id, isLeft, decodedInput);
         log.info("Saving JsonRecord with following info: id: [{}] isLeft: [{}] : [{}]", id, isLeft, jsonRecord);

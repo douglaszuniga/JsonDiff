@@ -1,5 +1,8 @@
 package com.dzuniga.JsonDiff.exception;
 
+/**
+ * Exception used to indicate that the input is not a valid base64 string
+ */
 public class InputNonValidException extends RuntimeException {
     private final String input;
 

@@ -54,6 +54,18 @@ public class DiffControllerTest {
     }
 
     @Test
+    public void shouldReturn400BadRequestWhenCallingRightWithBlankInput() throws Exception {
+        mockMvc.perform(
+                put("/v1/diff/{id}/right", 210L)
+                        .accept(MediaType.TEXT_PLAIN)
+                        .contentType(MediaType.TEXT_PLAIN)
+                        .content("")
+        )
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
     public void shouldReturn404NotFoundWhenTheIdIsNotFoundInTheJsonRecord() throws Exception {
         mockMvc.perform(
                 get("/v1/diff/{id}", 202L)

@@ -9,6 +9,10 @@ import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+/**
+ * Represents each insight containing the offset + length of each possible difference
+ * {offset,length}
+ */
 @Data
 public class DiffItem {
 

@@ -1,5 +1,8 @@
 package com.dzuniga.JsonDiff.exception;
 
+/**
+ * Exception used to indicate that there is no record in the database for the giving id
+ */
 public class JsonRecordNotFoundException extends RuntimeException {
     private final Long id;
 

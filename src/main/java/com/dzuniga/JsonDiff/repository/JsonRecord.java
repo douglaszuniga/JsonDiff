@@ -8,6 +8,9 @@ import lombok.Data;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+/**
+ * Represent the JsonRecord entity used to store in the database
+ */
 @Data
 public class JsonRecord {
 
